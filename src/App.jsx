@@ -5,6 +5,7 @@ import Clean from "./components/Clean";
 import News from "./components/News";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
+import CreateNews from "./components/CreateNews";
 
 import "./index.css";
 // import Register from "./components/register.jsx"
@@ -22,6 +23,8 @@ export default function App() {
           <Route path="/homework" element={<Homework />} />
           <Route path="/clean" element={<Clean />} />
           <Route path="/news" element={<News />} />
+          <Route path="/create" element={<CreateNews />} />
+          <Route path="login" element={<Login />} />
           {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
       </Router>

@@ -1,4 +1,4 @@
-.login-wrapper {
+.loginPage {
   font-weight: 800;
   font-size: 5em;
   width: 100%;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 850px) {
-  .login-wrapper {
-    font-size: calc(1.5rem + 3vw);
-  }
+.loginPage {
+  font-size: calc(1.5rem + 3vw);
+}
 }
