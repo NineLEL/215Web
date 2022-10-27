@@ -1,0 +1,26 @@
+footer {
+  position: absolute;
+  margin: 0 auto;
+  bottom: 0;
+  min-height: 70px;
+  min-width: 1000px;
+}
+
+footer a{
+  color:#FFFFFF;
+  text-decoration:none;
+
+}
+footer li{
+  display:inline;
+
+}
+
+footer .container {
+  padding-top:20px;
+}
+
+p{
+  left:80px;
+  top:200px;
+}
