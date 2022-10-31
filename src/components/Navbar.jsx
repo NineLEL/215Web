@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { MenuData } from "./MenuData";
 import "../styles/NavbarStyles.css";
-
+import "../App";
 class Navbar extends Component {
   state = { clicked: false };
   handleclick = () => {
@@ -15,6 +15,7 @@ class Navbar extends Component {
             215 <i class="fa-solid fa-landmark"></i>
           </h1>
         </a>
+        
         <div className="menu-icons" onClick={this.handleclick}>
           <i
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

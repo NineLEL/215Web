@@ -13,18 +13,30 @@ import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from 'react';
 
+
+
 export default function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      window.location.pathname = "/login";
+    });
+  };
+
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/homework" element={<Homework />} />
+          <Route path="/homework" element={<Homework isAuth={isAuth}/>} />
           <Route path="/clean" element={<Clean />} />
           <Route path="/news" element={<News />} />
-          <Route path="/create" element={<CreateNews />} />
-          <Route path="login" element={<Login />} />
+          <Route path="/create" element={<CreateNews isAuth={isAuth}/>} />
+          <Route path="login" element={<Login isAuth={isAuth}/>} />
           {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
       </Router>
