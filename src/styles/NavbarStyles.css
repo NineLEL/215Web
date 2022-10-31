@@ -74,25 +74,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.nav-logout {
-  text-decoration: none;
-  color: #fff;
-  padding: 0.7rem 1rem;
-  white-space: nowarp;
-  background: rgb(88, 80, 238);
-  border-radius: 4px;
-}
-
-.nav-logout i {
-  padding-right: 10px;
-}
-
-.nav-logout:hover {
-  background: #222;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-}
-
 .fa-bars,
 .fa-times {
   color: #fff;
