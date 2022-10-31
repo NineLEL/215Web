@@ -13,9 +13,7 @@ import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from 'react';
 
-
-
-export default function App() {
+function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   const signUserOut = () => {
@@ -43,3 +41,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;

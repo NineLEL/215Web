@@ -4,7 +4,7 @@ import { db, auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 
-// import "../styles/CreateNewsStyles.css";
+import "../styles/CreateNewsStyles.css";
 
 function CreateNews({ isAuth }) {
     const [title, setTitle] = useState("");
