@@ -1,7 +1,9 @@
 import { Component } from "react";
 import { MenuData } from "./MenuData";
+import { MenuDataLO } from "./MenuDataLogout";
 import "../styles/NavbarStyles.css";
-import "../App";
+import isAuth, { signUserOut } from "../App";
+
 class Navbar extends Component {
   state = { clicked: false };
   handleclick = () => {
@@ -15,24 +17,39 @@ class Navbar extends Component {
             215 <i class="fa-solid fa-landmark"></i>
           </h1>
         </a>
-        
         <div className="menu-icons" onClick={this.handleclick}>
           <i
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
-        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-          {MenuData.map((item, index) => {
-            return (
-              <li key={index}>
-                <a href={item.url} className={item.cName}>
-                  <i className={item.icon}></i>
-                  {item.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        {!isAuth ? (
+          <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+            {MenuDataLO.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a href={item.url} className={item.cName}>
+                    <i className={item.icon}></i>
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+            {MenuData.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a href={item.url} className={item.cName}>
+                    <i className={item.icon}></i>
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+        ;
       </nav>
     );
   }

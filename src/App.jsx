@@ -11,18 +11,19 @@ import "./index.css";
 // import Register from "./components/register.jsx"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+
+export const signUserOut = () => {
+  signOut(auth).then(() => {
+    localStorage.clear();
+    setIsAuth(false);
+    window.location.pathname = "/login";
+  });
+};
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
-  const signUserOut = () => {
-    signOut(auth).then(() => {
-      localStorage.clear();
-      setIsAuth(false);
-      window.location.pathname = "/login";
-    });
-  };
 
   return (
     <div className="App">
@@ -30,11 +31,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/homework" element={<Homework isAuth={isAuth}/>} />
+          <Route path="/homework" element={<Homework isAuth={isAuth} />} />
           <Route path="/clean" element={<Clean />} />
           <Route path="/news" element={<News />} />
-          <Route path="/create" element={<CreateNews isAuth={isAuth}/>} />
-          <Route path="login" element={<Login isAuth={isAuth}/>} />
+          <Route path="/create" element={<CreateNews isAuth={isAuth} />} />
+          <Route path="/login" element={<Login isAuth={isAuth}/>} />
           {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
       </Router>

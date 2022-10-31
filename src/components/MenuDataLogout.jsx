@@ -1,4 +1,4 @@
-export const MenuData = [
+export const MenuDataLO = [
     {
         title: "Homework",
         url: "homework",
@@ -18,9 +18,9 @@ export const MenuData = [
         icon: "fa-solid fa-newspaper"
     },
     {
-        title: "Logout",
-        url: "#",
-        cName: "nav-logout",
-        icon: "fa-solid fa-right-from-bracket"
+        title: "Login",
+        url: "login",
+        cName: "nav-login",
+        icon: "fa-solid fa-user"
     }
 ]

@@ -1,9 +1,17 @@
+import React, { useEffect, useState } from "react";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+
 import "../styles/NewsStyles.css";
 
 function News({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
-
+  const deletePost = async (id) => {
+    const postDoc = doc(db, "posts", id);
+    await deleteDoc(postDoc);
+  };
+  
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
@@ -12,11 +20,6 @@ function News({ isAuth }) {
 
     getPosts();
   }, [deletePost]);
-
-  const deletePost = async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await deleteDoc(postDoc);
-  };
   return (
     <div className="newsPage">
       {postLists.map((post) => {
