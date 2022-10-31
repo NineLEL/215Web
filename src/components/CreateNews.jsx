@@ -3,10 +3,13 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
-
 import "../styles/CreateNewsStyles.css";
 
+
 function CreateNews({ isAuth }) {
+  if (isAuth == false) {
+    document.location.href = '/login'
+  }
     const [title, setTitle] = useState("");
     const [postText, setPostText] = useState("");
   
