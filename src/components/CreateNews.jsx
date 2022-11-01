@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { db, auth } from "../firebase";
+import { db, auth, provider } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 import "../styles/CreateNewsStyles.css";
 
+const signInWithGoogle = () => {
+  signInWithPopup(auth, provider).then((result) => {
+    localStorage.setItem("isAuth", true);
+    setIsAuth(true);
+    // navigate("/");
+  });
+};
 
 function CreateNews({ isAuth }) {
   if (isAuth == false) {
-    document.location.href = '/login'
+    return (
+      <div className="createPostPage">
+        <p>You must logged in to create new news.</p>
+        <button className="login-with-google-btn" onClick={signInWithGoogle}>
+          Sign in with Google
+        </button>
+        </div>
+    )
   }
     const [title, setTitle] = useState("");
     const [postText, setPostText] = useState("");
@@ -25,16 +39,23 @@ function CreateNews({ isAuth }) {
       navigate("/news");
     };
   
-    useEffect(() => {
-      if (!isAuth) {
-        navigate("/login");
-      }
-    }, []);
+    // useEffect(() => {
+    //   if (!isAuth) {
+    //     return (
+    //       <div>
+    //         <p>You must logged in to create new news.</p>
+    //         <button className="login-with-google-btn" onClick={signInWithGoogle}>
+    //           Sign in with Google
+    //         </button>
+    //         </div>
+    //     )
+    //   }
+    // }, []);
   
     return (
       <div className="createPostPage">
         <div className="cpContainer">
-          <h1>Create A Post</h1>
+          <h1>Create a Post</h1>
           <div className="inputGp">
             <label> Title:</label>
             <input

@@ -74,7 +74,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.nav-logout {
+/* .nav-logout {
   text-decoration: none;
   color: #fff;
   padding: 0.7rem 1rem;
@@ -91,7 +91,7 @@
   background: #222;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
-}
+} */
 
 .fa-bars,
 .fa-times {
