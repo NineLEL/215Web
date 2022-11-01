@@ -31,10 +31,11 @@ function CreateNews({ isAuth }) {
     let navigate = useNavigate();
   
     const createPost = async () => {
+      if (!title && !postText) return;
       await addDoc(postsCollectionRef, {
         title,
         postText,
-        author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+        name: auth.currentUser.displayName, uid: auth.currentUser.uid
       });
       navigate("/news");
     };

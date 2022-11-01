@@ -30,7 +30,7 @@ function News({ isAuth }) {
                 <h1> {post.title}</h1>
               </div>
               <div className="deletePost">
-                {isAuth && post.author.id === auth.currentUser.uid && (
+                {isAuth && post.uid === auth.currentUser.uid && (
                   <button
                     onClick={() => {
                       deletePost(post.id);
@@ -43,7 +43,7 @@ function News({ isAuth }) {
               </div>
             </div>
             <div className="postTextContainer"> {post.postText} </div>
-            {/* <h3>@{post.author.name}</h3> */}
+            <h3>@{post.name}</h3>
           </div>
         );
       })}

@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { MenuData } from "./MenuData";
 import "../styles/NavbarStyles.css";
-import isAuth, { signUserOut } from "../App";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -21,19 +20,18 @@ class Navbar extends Component {
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
-          <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-            {MenuData.map((item, index) => {
-              return (
-                <li key={index}>
-                  <a href={item.url} className={item.cName}>
-                    <i className={item.icon}></i>
-                    {item.title}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        ;
+        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+          {MenuData.map((item, index) => {
+            return (
+              <li key={index}>
+                <a href={item.url} className={item.cName}>
+                  <i className={item.icon}></i>
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
     );
   }
