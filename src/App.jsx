@@ -38,6 +38,7 @@ function App() {
           <Route path="/login" element={<Login isAuth={isAuth}/>} />
           {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
